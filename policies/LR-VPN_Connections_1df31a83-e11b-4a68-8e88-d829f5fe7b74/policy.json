@@ -1,0 +1,70 @@
+{
+ "properties": {
+  "displayName": "LR-VPN Connections",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "LR-VPN Connections",
+  "metadata": {
+   "category": "LR-MSI-AzPolicy",
+   "createdBy": "9bc2c1a3-69cc-4e0f-b66c-b1b30b0fafc2",
+   "createdOn": "2021-12-07T05:54:17.5648093Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {},
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Network/connections"
+     },
+     {
+      "not": {
+       "anyOf": [
+        {
+         "field": "name",
+         "match": "CON-HUB-??????-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "CON-HUB-??????-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "CON-PROD-??????-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "CON-PROD-??????-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "CON-PREPROD-??????-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "CON-PREPROD-??????-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "CON-DR-??????-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "CON-DR-??????-UAEC"
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "then": {
+    "effect": "deny"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/mgmt-msi/providers/Microsoft.Authorization/policyDefinitions/1df31a83-e11b-4a68-8e88-d829f5fe7b74",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "1df31a83-e11b-4a68-8e88-d829f5fe7b74"
+}

@@ -1,0 +1,74 @@
+{
+ "properties": {
+  "displayName": "LR-KeyVault",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "LR-KeyVault",
+  "metadata": {
+   "category": "LR-MSI-AzPolicy",
+   "createdBy": "9bc2c1a3-69cc-4e0f-b66c-b1b30b0fafc2",
+   "createdOn": "2021-12-07T05:46:48.3482596Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {},
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.KeyVault/vaults"
+     },
+     {
+      "not": {
+       "anyOf": [
+        {
+         "field": "name",
+         "match": "kvault-hub-????-uaen"
+        },
+        {
+         "field": "name",
+         "match": "kvault-hub-????-uaec"
+        },
+        {
+         "field": "name",
+         "match": "kvault-prod-????-uaen"
+        },
+        {
+         "field": "name",
+         "match": "kvault-prod-????-uaec"
+        },
+        {
+         "field": "name",
+         "match": "kvault-preprod-????-uaen"
+        },
+        {
+         "field": "name",
+         "match": "kvault-nonprod-????-uaen"
+        },
+        {
+         "field": "name",
+         "match": "kvault-preprod-????-uaec"
+        },
+        {
+         "field": "name",
+         "match": "kvault-dr-????-uaen"
+        },
+        {
+         "field": "name",
+         "match": "kvault-dr-????-uaec"
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "then": {
+    "effect": "deny"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/mgmt-msi/providers/Microsoft.Authorization/policyDefinitions/6bb1a034-2336-4bb1-a8b9-4bdd083dadd9",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "6bb1a034-2336-4bb1-a8b9-4bdd083dadd9"
+}

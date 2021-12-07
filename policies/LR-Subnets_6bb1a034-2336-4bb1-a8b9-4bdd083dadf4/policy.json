@@ -1,0 +1,166 @@
+{
+ "properties": {
+  "displayName": "LR-Subnets",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "LR-Subnets",
+  "metadata": {
+   "createdBy": "9bc2c1a3-69cc-4e0f-b66c-b1b30b0fafc2",
+   "createdOn": "2021-12-07T05:50:23.8751567Z",
+   "updatedBy": "9bc2c1a3-69cc-4e0f-b66c-b1b30b0fafc2",
+   "updatedOn": "2021-12-07T09:33:59.2467932Z",
+   "category": "LR-MSI-AzPolicy"
+  },
+  "parameters": {},
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Network/virtualNetworks/subnets"
+     },
+     {
+      "not": {
+       "anyOf": [
+        {
+         "field": "name",
+         "match": "GATEWAYSUBNET"
+        },
+        {
+         "field": "name",
+         "match": "AzureBastionSubnet"
+        },
+        {
+         "field": "name",
+         "match": "AZUREFIREWALLSUBNET"
+        },
+        {
+         "field": "name",
+         "match": "AzureFirewallSubnet"
+        },
+        {
+         "field": "name",
+         "match": "SNET-HUB-PERIMETER-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "SNET-HUB-APPSEC-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "SNET-HUB-IDENTITY-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "SNET-HUB-ACCESS-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "SNET-HUB-????-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "SNET-HUB-????-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "SNET-NONPROD-??????????-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "SNET-NONPROD-???????-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "SNET-NONPROD-????????-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "SNET-HUB-??????-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "SNET-HUB-????????-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "SNET-PROD-?????-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "SNET-PROD-??????????-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "SNET-PROD-????????-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "SNET-PROD-???????-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "SNET-PROD-??????????-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "SNET-PROD-????????-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "SNET-PROD-???????-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "SNET-PREPROD-????-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "SNET-PREPROD-??????????-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "SNET-PREPROD-????????-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "SNET-PREPROD-???????-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "SNET-PREPROD-??????????-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "SNET-PREPROD-????????-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "SNET-PREPROD-???????-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "SNET-DR-????-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "SNET-DR-????-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "VNET-NONPROD-UAEN/SNET-NONPROD-???????-UAEN"
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "then": {
+    "effect": "deny"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/mgmt-msi/providers/Microsoft.Authorization/policyDefinitions/6bb1a034-2336-4bb1-a8b9-4bdd083dadf4",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "6bb1a034-2336-4bb1-a8b9-4bdd083dadf4"
+}

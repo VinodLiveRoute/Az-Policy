@@ -1,0 +1,54 @@
+name: manage-azure-policy-2c478cc5
+on:
+  workflow_dispatch:
+    inputs:
+      remarks:
+        description: 'Reason for triggering the workflow run'
+        required: false
+        default: 'Updating Azure Policies'
+
+
+## Uncomment the following if you wish to automatically trigger workflow run with every commit
+#
+#  push:
+#    paths:
+#      - 'policies/LR-LoadBalancers_1df31a83-e11b-4a68-8e88-d829f5fe7b62/**'
+#      - 'policies/LR-NetworkSecurityGroups_1df31a83-e11b-4a68-8e88-d829f5fe7b6b/**'
+#      - 'policies/LR-VPN_Connections_1df31a83-e11b-4a68-8e88-d829f5fe7b74/**'
+#      - 'policies/LR-VirtualNetworks_3d0e54de-2f72-4a95-9c1c-a83e6c9bb6e9/**'
+#      - 'policies/LR-KeyVault_6bb1a034-2336-4bb1-a8b9-4bdd083dadd9/**'
+#      - 'policies/LR-PublicIpAddresses_6bb1a034-2336-4bb1-a8b9-4bdd083dade2/**'
+#      - 'policies/LR-StorageAccounts_6bb1a034-2336-4bb1-a8b9-4bdd083dadeb/**'
+#      - 'policies/LR-Subnets_6bb1a034-2336-4bb1-a8b9-4bdd083dadf4/**'
+#      - 'policies/LR-VirtualNetworkGateways_96bd3184-a5ab-48f8-a7b5-2af351d85313/**'
+#      - 'policies/LR-WeApp_b0e249a4-8862-4958-a536-101e02436f22/**'
+#      - 'policies/LR-VirtualMachines_8af850e5-a65f-4bdc-89be-c223fa44dcab/**'
+#      - 'policies/LR-Resource_Tags_on_a_Resource_Group_and_resource_level_ba9b0d27-dc94-440e-a333-dbfb7ca0bace/**'
+#      - .github/workflows/manage-azure-policy-2c478cc5.yml
+jobs:
+  apply-azure-policy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS_2c478cc5}}
+        allow-no-subscriptions: true
+    - name: Create or Update Azure Policies
+      uses: azure/manage-azure-policy@v0
+      with:
+        paths: |
+          policies/LR-LoadBalancers_1df31a83-e11b-4a68-8e88-d829f5fe7b62/**
+          policies/LR-NetworkSecurityGroups_1df31a83-e11b-4a68-8e88-d829f5fe7b6b/**
+          policies/LR-VPN_Connections_1df31a83-e11b-4a68-8e88-d829f5fe7b74/**
+          policies/LR-VirtualNetworks_3d0e54de-2f72-4a95-9c1c-a83e6c9bb6e9/**
+          policies/LR-KeyVault_6bb1a034-2336-4bb1-a8b9-4bdd083dadd9/**
+          policies/LR-PublicIpAddresses_6bb1a034-2336-4bb1-a8b9-4bdd083dade2/**
+          policies/LR-StorageAccounts_6bb1a034-2336-4bb1-a8b9-4bdd083dadeb/**
+          policies/LR-Subnets_6bb1a034-2336-4bb1-a8b9-4bdd083dadf4/**
+          policies/LR-VirtualNetworkGateways_96bd3184-a5ab-48f8-a7b5-2af351d85313/**
+          policies/LR-WeApp_b0e249a4-8862-4958-a536-101e02436f22/**
+          policies/LR-VirtualMachines_8af850e5-a65f-4bdc-89be-c223fa44dcab/**
+          policies/LR-Resource_Tags_on_a_Resource_Group_and_resource_level_ba9b0d27-dc94-440e-a333-dbfb7ca0bace/**

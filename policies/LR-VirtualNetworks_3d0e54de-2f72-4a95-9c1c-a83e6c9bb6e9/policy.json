@@ -1,0 +1,106 @@
+{
+ "properties": {
+  "displayName": "LR-VirtualNetworks",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "LR-VirtualNetworks",
+  "metadata": {
+   "category": "LR-MSI-AzPolicy",
+   "createdBy": "9bc2c1a3-69cc-4e0f-b66c-b1b30b0fafc2",
+   "createdOn": "2021-12-07T05:38:36.2821683Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {},
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Network/VirtualNetworks"
+     },
+     {
+      "not": {
+       "anyOf": [
+        {
+         "field": "name",
+         "match": "VNET-HUB-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "VNET-HUB-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "VNET-PROD-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "VNET-PROD-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "VNET-PREPROD-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "VNET-NONPROD-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "VNET-PREPROD-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "VNET-DR-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "VNET-DR-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "VNET-???-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "VNET-????-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "VNET-?????-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "VNET-??????-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "VNET-???-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "VNET-????-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "VNET-?????-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "VNET-??????-UAEC"
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "then": {
+    "effect": "deny"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/mgmt-msi/providers/Microsoft.Authorization/policyDefinitions/3d0e54de-2f72-4a95-9c1c-a83e6c9bb6e9",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "3d0e54de-2f72-4a95-9c1c-a83e6c9bb6e9"
+}

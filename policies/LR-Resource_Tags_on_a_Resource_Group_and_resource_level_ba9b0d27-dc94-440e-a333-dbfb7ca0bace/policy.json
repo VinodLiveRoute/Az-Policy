@@ -1,0 +1,61 @@
+{
+ "properties": {
+  "displayName": "LR-Resource Tags on a Resource Group and resource level",
+  "policyType": "Custom",
+  "mode": "All",
+  "metadata": {
+   "category": "LR-MSI-AzPolicy",
+   "createdBy": "9bc2c1a3-69cc-4e0f-b66c-b1b30b0fafc2",
+   "createdOn": "2021-12-07T08:30:35.5801437Z",
+   "updatedBy": "9bc2c1a3-69cc-4e0f-b66c-b1b30b0fafc2",
+   "updatedOn": "2021-12-07T08:41:24.3306704Z"
+  },
+  "parameters": {},
+  "policyRule": {
+   "if": {
+    "anyOf": [
+     {
+      "field": "tags[Workload Name]",
+      "notIn": [
+       "Active Directory",
+       "ITSM",
+       "APPMOnitor",
+       "NetworkMonitor",
+       "NetworkFirewall",
+       "WAF",
+       "ResourceGroup"
+      ]
+     },
+     {
+      "field": "tags[Business Criticality]",
+      "notIn": [
+       "High",
+       "Low"
+      ]
+     },
+     {
+      "field": "tags[DR Enabled]",
+      "notIn": [
+       "YES",
+       "NO"
+      ]
+     },
+     {
+      "field": "tags[Type]",
+      "notIn": [
+       "LR-MSI",
+       "LiveRoute",
+       "Customer"
+      ]
+     }
+    ]
+   },
+   "then": {
+    "effect": "deny"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/mgmt-msi/providers/Microsoft.Authorization/policyDefinitions/ba9b0d27-dc94-440e-a333-dbfb7ca0bace",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "ba9b0d27-dc94-440e-a333-dbfb7ca0bace"
+}

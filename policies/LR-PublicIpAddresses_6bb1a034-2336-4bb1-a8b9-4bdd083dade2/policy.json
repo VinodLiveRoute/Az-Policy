@@ -1,0 +1,70 @@
+{
+ "properties": {
+  "displayName": "LR-PublicIpAddresses",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "LR-PublicIpAddresses",
+  "metadata": {
+   "category": "LR-MSI-AzPolicy",
+   "createdBy": "9bc2c1a3-69cc-4e0f-b66c-b1b30b0fafc2",
+   "createdOn": "2021-12-07T05:48:15.8945867Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {},
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Network/publicIpAddresses"
+     },
+     {
+      "not": {
+       "anyOf": [
+        {
+         "field": "name",
+         "match": "PIP-HUB-????-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "PIP-HUB-????-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "PIP-PROD-????-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "PIP-PROD-????-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "PIP-PREPROD-????-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "PIP-PREPROD-????-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "PIP-DR-????-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "PIP-DR-????-UAEC"
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "then": {
+    "effect": "deny"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/mgmt-msi/providers/Microsoft.Authorization/policyDefinitions/6bb1a034-2336-4bb1-a8b9-4bdd083dade2",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "6bb1a034-2336-4bb1-a8b9-4bdd083dade2"
+}

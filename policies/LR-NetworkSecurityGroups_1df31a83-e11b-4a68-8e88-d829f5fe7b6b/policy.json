@@ -1,0 +1,170 @@
+{
+ "properties": {
+  "displayName": "LR-NetworkSecurityGroups",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "LR-NetworkSecurityGroups",
+  "metadata": {
+   "category": "LR-MSI-AzPolicy",
+   "createdBy": "9bc2c1a3-69cc-4e0f-b66c-b1b30b0fafc2",
+   "createdOn": "2021-12-07T05:53:25.7118632Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {},
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Network/networkSecurityGroups"
+     },
+     {
+      "not": {
+       "anyOf": [
+        {
+         "field": "name",
+         "match": "NSG-HUB-APPSEC-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "NSG-HUB-IDENTITY-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "NSG-HUB-MGMT-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "NSG-HUB-APPSEC-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "NSG-HUB-IDENTITY-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "NSG-NONPROD-FRONTEND-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "NSG-NONPROD-MIDDLEWARE-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "NSG-NONPROD-BACKEND-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "NSG-HUB-MGMT-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "NSG-PREPROD-FRONTEND-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "NSG-PREPROD-MIDDLEWARE-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "NSG-PREPROD-BACKEND-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "NSG-PREPROD-FRONTEND-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "NSG-PREPROD-MIDDLEWARE-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "NSG-PREPROD-BACKEND-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "NSG-PROD-FRONTEND-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "NSG-PROD-MIDDLEWARE-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "NSG-PROD-BACKEND-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "NSG-PROD-FRONTEND-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "NSG-PROD-MIDDLEWARE-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "NSG-PROD-BACKEND-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "NSG-HUB-????-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "NSG-HUB-????-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "NSG-PROD-???-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "NSG-PROD-???-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "NSG-PROD-????-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "NSG-PROD-????-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "NSG-PREPROD-????-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "NSG-PREPROD-????-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "NSG-NONPROD-????-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "NSG-NONPROD-????-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "NSG-DR-????-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "NSG-DR-????-UAEC"
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "then": {
+    "effect": "deny"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/mgmt-msi/providers/Microsoft.Authorization/policyDefinitions/1df31a83-e11b-4a68-8e88-d829f5fe7b6b",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "1df31a83-e11b-4a68-8e88-d829f5fe7b6b"
+}

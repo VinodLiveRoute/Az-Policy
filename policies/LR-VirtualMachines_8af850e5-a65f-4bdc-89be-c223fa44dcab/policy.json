@@ -1,0 +1,62 @@
+{
+ "properties": {
+  "displayName": "LR-VirtualMachines",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "LR-VirtualMachines",
+  "metadata": {
+   "createdBy": "9bc2c1a3-69cc-4e0f-b66c-b1b30b0fafc2",
+   "createdOn": "2021-12-07T05:51:17.1835698Z",
+   "updatedBy": "9bc2c1a3-69cc-4e0f-b66c-b1b30b0fafc2",
+   "updatedOn": "2021-12-07T09:34:39.9930077Z",
+   "category": "LR-MSI-AzPolicy"
+  },
+  "parameters": {},
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Compute/virtualMachines"
+     },
+     {
+      "not": {
+       "anyOf": [
+        {
+         "field": "name",
+         "match": "VMPR????UAEN##"
+        },
+        {
+         "field": "name",
+         "match": "VMPP????UAEN##"
+        },
+        {
+         "field": "name",
+         "match": "VMDR????UAEC##"
+        },
+        {
+         "field": "name",
+         "match": "VMNP????UAEN##"
+        },
+        {
+         "field": "name",
+         "match": "VMPR????UAEC##"
+        },
+        {
+         "field": "name",
+         "match": "VMPP????UAEC##"
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "then": {
+    "effect": "deny"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/mgmt-msi/providers/Microsoft.Authorization/policyDefinitions/8af850e5-a65f-4bdc-89be-c223fa44dcab",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "8af850e5-a65f-4bdc-89be-c223fa44dcab"
+}

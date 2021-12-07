@@ -1,0 +1,70 @@
+{
+ "properties": {
+  "displayName": "LR-VirtualNetworkGateways",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "LR-VirtualNetworkGateways",
+  "metadata": {
+   "category": "LR-MSI-AzPolicy",
+   "createdBy": "9bc2c1a3-69cc-4e0f-b66c-b1b30b0fafc2",
+   "createdOn": "2021-12-07T05:43:00.1763309Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {},
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Network/virtualNetworkGateways"
+     },
+     {
+      "not": {
+       "anyOf": [
+        {
+         "field": "name",
+         "match": "VGET-HUB-????-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "VGET-HUB-????-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "VGET-PROD-????-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "VGET-PROD-????-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "VGET-PREPROD-????-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "VGET-PREPROD-????-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "VGET-DR-????-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "VGET-DR-????-UAEC"
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "then": {
+    "effect": "deny"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/mgmt-msi/providers/Microsoft.Authorization/policyDefinitions/96bd3184-a5ab-48f8-a7b5-2af351d85313",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "96bd3184-a5ab-48f8-a7b5-2af351d85313"
+}

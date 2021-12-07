@@ -1,0 +1,74 @@
+{
+ "properties": {
+  "displayName": "LR-StorageAccounts",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "LR-StorageAccounts",
+  "metadata": {
+   "category": "LR-MSI-AzPolicy",
+   "createdBy": "9bc2c1a3-69cc-4e0f-b66c-b1b30b0fafc2",
+   "createdOn": "2021-12-07T05:49:31.0804827Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {},
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Storage/storageAccounts"
+     },
+     {
+      "not": {
+       "anyOf": [
+        {
+         "field": "name",
+         "match": "sthub????uaen##"
+        },
+        {
+         "field": "name",
+         "match": "sthub????uaec##"
+        },
+        {
+         "field": "name",
+         "match": "stprd????uaen##"
+        },
+        {
+         "field": "name",
+         "match": "stprd????uaec##"
+        },
+        {
+         "field": "name",
+         "match": "stpreprod????uaen##"
+        },
+        {
+         "field": "name",
+         "match": "stpreprod????uaec##"
+        },
+        {
+         "field": "name",
+         "match": "stdr????uaen##"
+        },
+        {
+         "field": "name",
+         "match": "stdr????uaec##"
+        },
+        {
+         "field": "name",
+         "match": "stnonprod????uaen##"
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "then": {
+    "effect": "deny"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/mgmt-msi/providers/Microsoft.Authorization/policyDefinitions/6bb1a034-2336-4bb1-a8b9-4bdd083dadeb",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "6bb1a034-2336-4bb1-a8b9-4bdd083dadeb"
+}

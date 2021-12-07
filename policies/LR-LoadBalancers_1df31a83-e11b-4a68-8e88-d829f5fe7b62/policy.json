@@ -1,0 +1,70 @@
+{
+ "properties": {
+  "displayName": "LR-LoadBalancers",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "LR-LoadBalancers",
+  "metadata": {
+   "category": "LR-MSI-AzPolicy",
+   "createdBy": "9bc2c1a3-69cc-4e0f-b66c-b1b30b0fafc2",
+   "createdOn": "2021-12-07T05:52:17.0902831Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {},
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Network/loadbalancers"
+     },
+     {
+      "not": {
+       "anyOf": [
+        {
+         "field": "name",
+         "match": "LB-HUB-????-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "LB-HUB-????-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "LB-PROD-????-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "LB-PROD-????-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "LB-PREPROD-????-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "LB-PREPROD-????-UAEC"
+        },
+        {
+         "field": "name",
+         "match": "LB-DR-????-UAEN"
+        },
+        {
+         "field": "name",
+         "match": "LB-DR-????-UAEC"
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "then": {
+    "effect": "deny"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/mgmt-msi/providers/Microsoft.Authorization/policyDefinitions/1df31a83-e11b-4a68-8e88-d829f5fe7b62",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "1df31a83-e11b-4a68-8e88-d829f5fe7b62"
+}
