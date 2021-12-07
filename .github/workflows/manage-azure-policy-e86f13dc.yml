@@ -1,0 +1,32 @@
+name: manage-azure-policy-e86f13dc
+on:
+  workflow_dispatch:
+    inputs:
+      remarks:
+        description: 'Reason for triggering the workflow run'
+        required: false
+        default: 'Updating Azure Policies'
+
+
+## Uncomment the following if you wish to automatically trigger workflow run with every commit
+#
+#  push:
+#    paths:
+#      - 'policies/_Preview_Storage_account_public_access_should_be_disallowed_4fa4b6c0-31ca-4c0d-b10d-24b96f62a751/**'
+#      - .github/workflows/manage-azure-policy-e86f13dc.yml
+jobs:
+  apply-azure-policy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS_e86f13dc}}
+        allow-no-subscriptions: true
+    - name: Create or Update Azure Policies
+      uses: azure/manage-azure-policy@v0
+      with:
+        paths: |
+          policies/_Preview_Storage_account_public_access_should_be_disallowed_4fa4b6c0-31ca-4c0d-b10d-24b96f62a751/**
